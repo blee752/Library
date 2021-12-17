@@ -12,24 +12,39 @@ body {
 .header{
 display:flex;
 justify-content: center;
-align-items: center;
 padding:20px;
 }
 
 .main-container {
-    flex:1 auto;
+    text-align: center;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.grid-container {
     display:grid;
     grid-template-columns: repeat(5,1fr);
     grid-gap: 10px;
+    text-align: center;
+}
+
+.grid-container div {
+    display: flex;
+    flex-direction: column;
 }
 
 .footer {
     display: flex;
+    text-align: center;
+    width: 100%;
+    flex:1 auto;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
 }
 
-.main-container div {
+
+
+
+.grid-container div {
     border: 1px black solid;
-    max-height: 200px;
 }
