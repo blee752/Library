@@ -26,7 +26,13 @@ demo.info();
 myLibrary.push(demo);
 myLibrary.push(demo2);
 
-let cell, title, author, pages, read;
+/* let cell, title, author, pages, read; */
+
+const cell = document.createElement('div');
+const title = document.createElement('h3');
+const author = document.createElement('p');
+const pages = document.createElement('p');
+const read = document.createElement('p');
 
 const libraryContainer = document.querySelector('.grid-container');
 
@@ -47,11 +53,7 @@ libraryContainer.appendChild(cell); */
 //Function to loop through mylibrary and create the elements to append
 function createLibrary() {
     myLibrary.forEach((book) => {
-        cell = document.createElement('div');
-        title = document.createElement('h3');
-        author = document.createElement('p');
-        pages = document.createElement('p');
-        read = document.createElement('p');
+        
         
         title.innerText = `${book.title}`;
         author.innerText = `By ${book.author}`;
@@ -69,3 +71,7 @@ createLibrary();
 
 //On load, check if mylibrary isnt empty, if not run loop function to add entries onto webpage
 
+//function to clear grid container inner html
+
+
+//on delete, find parent div of the clicked remove button, delete it from DOM. Track the title of that div, and find it in myLibrary array then pop it
