@@ -31,6 +31,7 @@ padding:20px;
 .grid-container div {
     display: flex;
     flex-direction: column;
+    padding:25px;
 }
 
 .footer {
