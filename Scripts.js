@@ -56,7 +56,7 @@ function createLibrary() {
         const buttonBox = document.createElement('div');
         const readBt = document.createElement('button');
         const removeBt = document.createElement('button');
-        
+
         cell.className = 'grid-item';
         readBt.className = 'status';
         removeBt.className ='Remove-Bt';
@@ -64,7 +64,8 @@ function createLibrary() {
         title.innerText = `${book.title}`;
         author.innerText = `By ${book.author}`;
         pages.innerText = `Pages: ${book.pages}`;
-
+        cell.dataset.title = book.title;
+        
         if(book.read === 'no'){
             readBt.className += ' red';
             readBt.innerText = `Not Read`;
@@ -98,6 +99,7 @@ createLibrary();
 
 function toggleEvent(){
     const statusBt = document.querySelectorAll('.status');
+    let newStatus;
     if(statusBt !== null){
     statusBt.forEach(statusBt => {
         statusBt.addEventListener('click', e => {
@@ -106,28 +108,58 @@ function toggleEvent(){
                 e.target.classList.remove('red');
                 e.target.classList.add('green');
                 e.target.innerText = 'Read';
+                newStatus = e.target.parentNode.parentNode.dataset.title;
+                modifyStatus('yes',newStatus);
             }
             else {
                 e.target.classList.remove('green')
                 e.target.classList.add('red');
                 e.target.innerText = 'Not Read'
+                newStatus = e.target.parentNode.parentNode.dataset.title;
+                modifyStatus('no', newStatus);
             }
  })
     }
      )}}
 function removeEvent(){
     const removeBt = document.querySelectorAll('.Remove-Bt');
+    let toDelete;
     if(removeBt !== null){
     removeBt.forEach(removeBt => {
         removeBt.addEventListener('click', e => {
-            console.log(e);
+            
+            toDelete = e.target.parentNode.parentNode.dataset.title;
+            deleteBook(toDelete);
+            console.log(myLibrary);
+            resetLib();
 })
     }
         )}}
 toggleEvent();
 removeEvent();
-//function modifyStatus (status, title){}
+
+function resetLib(){
+    libraryContainer.replaceChildren();
+    createLibrary();
+    toggleEvent();
+removeEvent();
+}
+function modifyStatus (status, title){
+    myLibrary.forEach(book => {
+        if(book.title === title){
+            book.read = status;
+        }
+    })
+}
 //send the string, no and yes, to this function from the event listener
 //This function should go through the mylibrary array and find the corresponding 
 //item in the array and modify the status property
 //potentially add the dataset class to the container div of the buttons to access the title?
+
+function deleteBook(title){
+    myLibrary.forEach(book => {
+        if(book.title === title){
+            myLibrary.pop(book);
+        }
+    })
+}
