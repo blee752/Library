@@ -28,10 +28,15 @@ padding:20px;
     text-align: center;
 }
 
-.grid-container div {
+.grid-item {
     display: flex;
     flex-direction: column;
     padding:25px;
+    border: 1px black solid;
+}
+
+.grid-item *{
+    width: ;
 }
 
 .footer {
@@ -44,8 +49,29 @@ padding:20px;
 }
 
 
+button {
+    background:rgba(0,0,0,0.3);
+    border: 1px solid #111;
+    padding:5px;
+    color:#EEE;
+    border-radius: 5px;
+    font-size: 10px;
+}
 
+button:hover {
+    background-color:rgba(0,0,0,0.5);
+}
 
-.grid-container div {
-    border: 1px black solid;
+button:active {
+    background-color:rgba(0,0,0,1);
+    transform: translateY(4px);
+
+}
+
+.status.red {
+    background-color: red;
+}
+
+.status.green {
+    background-color: green;
 }
