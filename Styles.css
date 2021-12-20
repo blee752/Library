@@ -89,6 +89,7 @@ button:active {
     overflow: auto;
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    
 }
 
 .modal-content {
@@ -101,7 +102,9 @@ button:active {
     -webkit-animation-name: animatetop;
     -webkit-animation-duration: 0.4s;
     animation-name: animatetop;
-    animation-duration: 0.4s
+    animation-duration: 0.4s;
+    border: 1px solid black;
+    border-radius: 5px;
 }
 
 .modal-fields {
@@ -115,10 +118,26 @@ button:active {
 
 .modal-content span {
     font-size: 25px;
+    width: fit-content;
+    height: fit-content;
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.modal-content span:hover,
+.modal-content span:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .modal-fields div {
     display:flex;
     align-items: center;
     justify-content: center;
+}
+
+.modal-fields p {
+    margin: 0px;
 }
