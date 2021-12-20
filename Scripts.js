@@ -26,8 +26,7 @@ demo.info();
 myLibrary.push(demo);
 myLibrary.push(demo2);
 
-/* let cell, title, author, pages, read; */
-
+const addBookBt = document.querySelector('.add-book');
 
 /* const statusBt = document.querySelectorAll('.status');
  */const libraryContainer = document.querySelector('.grid-container');
@@ -163,3 +162,20 @@ function deleteBook(title){
         }
     })
 }
+
+
+const modal = document.querySelector('.modal-window');
+addBookBt.addEventListener('click', e => {
+    modal.style.display = 'block';
+})
+
+const spanClose = document.querySelector('span');
+spanClose.addEventListener('click', e => {
+    modal.style.display = 'none';
+})
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
