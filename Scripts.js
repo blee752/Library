@@ -13,8 +13,9 @@ function book (title, author, pages, read){
     }
 }
 
-function addBookToLibrary(){
-    //do something
+function addBookToLibrary(title, author, pages, read){
+    const Nextbook = new book(title, author, pages, read);
+    myLibrary.push(Nextbook);
 }
 
 //test entries
@@ -141,7 +142,7 @@ function resetLib(){
     libraryContainer.replaceChildren();
     createLibrary();
     toggleEvent();
-removeEvent();
+    removeEvent();
 }
 function modifyStatus (status, title){
     myLibrary.forEach(book => {
@@ -164,18 +165,52 @@ function deleteBook(title){
 }
 
 
+
 const modal = document.querySelector('.modal-window');
 addBookBt.addEventListener('click', e => {
     modal.style.display = 'block';
 })
 
+function clearModal() {
+    modal.style.display = 'none';
+    document.getElementById('title').value = '';
+    document.getElementById('author').value ='';
+    document.getElementById('pages').value = '';
+    if(document.getElementsByName('status').value !== undefined){
+        document.querySelector('input[name="status"]:checked').checked = false;
+    }
+    document.querySelector('.error').innerText = '';
+    
+}
+
 const spanClose = document.querySelector('span');
 spanClose.addEventListener('click', e => {
-    modal.style.display = 'none';
+    clearModal();
 })
 
 window.onclick = function(event) {
     if (event.target == modal) {
-      modal.style.display = "none";
-    }
+        clearModal();    }
   }
+  const errMsg = document.querySelector('.error');
+const submitBook = document.querySelector('.add-Book');
+submitBook.addEventListener('click', e => {
+
+    let title = document.getElementById('title').value;
+    let author = document.getElementById('author').value;
+    let pages = document.getElementById('pages').value;
+    if(title === '' || author === '' || pages === '' || document.getElementsByName('status') === undefined) {
+        return;
+    }
+    else if(myLibrary.find(book => book.title === title)){
+        errMsg.innerText = "This book already exists in your library.";
+        return;
+    }
+    let read = document.querySelector('input[name="status"]:checked').value;
+     
+
+    addBookToLibrary(title, author, pages, read);
+    resetLib();
+
+    clearModal();
+})
