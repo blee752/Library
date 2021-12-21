@@ -141,3 +141,8 @@ button:active {
 .modal-fields p {
     margin: 0px;
 }
+
+.error {
+    margin:0px;
+    color:red;
+}
