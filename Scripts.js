@@ -60,6 +60,7 @@ function createLibrary() {
         cell.className = 'grid-item';
         readBt.className = 'status';
         removeBt.className ='Remove-Bt';
+        buttonBox.className ='button-container';
 
         title.innerText = `${book.title}`;
         author.innerText = `By ${book.author}`;
@@ -176,7 +177,7 @@ function clearModal() {
     document.getElementById('title').value = '';
     document.getElementById('author').value ='';
     document.getElementById('pages').value = '';
-    if(document.getElementsByName('status').value !== undefined){
+    if(document.querySelector('input[name="status"]:checked') !== null){
         document.querySelector('input[name="status"]:checked').checked = false;
     }
     document.querySelector('.error').innerText = '';
