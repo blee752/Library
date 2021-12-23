@@ -1,5 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@300&display=swap');
+
+
 html {
     height: 100%;
+    background-color:rgb(206, 206, 206);
+    font-family: 'Merriweather Sans', sans-serif;
+
 }
 
 body {
@@ -12,14 +18,22 @@ body {
 
 .header{
 display:flex;
-justify-content: center;
 padding:20px;
+background-color: rgb(164, 194, 204);
+margin-bottom: 5px;
 }
 
 .main-container {
     text-align: center;
     max-width: 1400px;
     margin: 0 auto;
+
+}
+
+.main-container button {
+    margin-bottom: 30px;
+    font-size: 25px;
+    padding:15px;
 }
 
 .grid-container {
@@ -29,26 +43,58 @@ padding:20px;
     text-align: center;
 }
 
+
+
 .grid-item {
     display: flex;
     flex-direction: column;
     padding:25px;
     border: 1px black solid;
+    background-color: darkgray;
+    border-radius: 5px;
 }
 
-.grid-item *{
-    width: ;
+.Remove-Bt {
+    background-color: darkred;
 }
+
+/* .grid-item *{
+    width: ;
+} */
 
 .footer {
+
     display: flex;
     text-align: center;
     width: 100%;
     flex:1 auto;
     justify-content: center;
     align-items: flex-end;
+    gap: 10px;
+    padding-bottom: 10px;
+    padding-top: 30px;
 }
 
+.footer h3 {
+    margin: 0;
+}
+
+.fab {
+    font-size: 30px;
+    transition: transform 0.3s ease-in-out;
+}
+.fa-github:hover {
+    transform: rotate(360deg) scale(1.2);
+  }
+a {
+    outline: 0;
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+    color: black;
+}
 
 button {
     background:rgba(0,0,0,0.3);
@@ -145,4 +191,34 @@ button:active {
 .error {
     margin:0px;
     color:red;
+}
+
+.button-container button {
+    padding:5px;
+    font-size: 15px;
+}
+
+.button-container button:first-child{
+    margin-right: 5px;
+}
+
+
+.submit-Book {
+    font-size: 15px;
+    background-color: green;
+    border-radius: 5px;
+    padding: 5px 30px;
+    margin-top: 10px;
+}
+
+.add-book {
+    font-size: 15px;
+    background-color: green;
+    border-radius: 5px;
+    padding: 5px 30px;
+
+}
+
+.add-book:hover {
+    background-color: rgb(0, 187, 0);
 }
