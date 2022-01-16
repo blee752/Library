@@ -3,13 +3,22 @@ let myLibrary = [];
 
 //book constructor
 
-function book (title, author, pages, read){
+/* function book (title, author, pages, read){
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.read = read;
     this.info = function(){
         console.log(`${title} by ${author}, ${pages}, ${read}`);
+    }
+} */
+
+class book {
+    constructor(title, author, pages, read){
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
     }
 }
 
@@ -22,7 +31,7 @@ function addBookToLibrary(title, author, pages, read){
 const demo = new book('The Hobbit', 'J.R.R. Tolkien', 295, 'yes');
 
 const demo2 = new book('The Fellowship Of The Ring', 'J.R.R. Tolkien', 448, 'no');
-demo.info();
+
 
 myLibrary.push(demo);
 myLibrary.push(demo2);
@@ -194,7 +203,7 @@ window.onclick = function(event) {
         clearModal();    }
   }
   const errMsg = document.querySelector('.error');
-const submitBook = document.querySelector('.add-Book');
+const submitBook = document.querySelector('.submit-Book');
 submitBook.addEventListener('click', e => {
 
     let title = document.getElementById('title').value;
