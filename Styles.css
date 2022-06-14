@@ -21,7 +21,13 @@ display:flex;
 padding:20px;
 background-color: rgb(164, 194, 204);
 margin-bottom: 5px;
+
 }
+
+ul {
+    color: white;
+}
+
 
 .main-container {
     text-align: center;
